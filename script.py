@@ -38,6 +38,9 @@ class AppDynamicsJob(unittest.TestCase):
             # Blog here!
             driver.get("https://www.tumblr.com/blog/bloghere/followers")
             time.sleep(2)
+            if driver.find_element_by_xpath("//span['@id' == 'username']").text == "Gustavo Bordin":
+                return "Not this guy"
+            
             driver.find_element_by_css_selector("span.Jnotm > svg").click()
             driver.find_element_by_xpath("//div[@id='base-container']/div/div[2]/div/main/section/div/div[2]/div/span/div/div/div/button").click()
             driver.find_element_by_xpath("//div[@id='glass-container']/div/div[2]/div[2]/button[2]/span").click()
